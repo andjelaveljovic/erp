@@ -1,18 +1,17 @@
-package com.prodaja.prodaja.data;
+package com.roba.roba.data;
 
 import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "artikli")
+@Table(name = "artikli_roba")
 @Getter
 @Setter
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Builder
 @ToString
-public class Artikal {
-
+public class ArtikalRoba {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -29,19 +28,12 @@ public class Artikal {
     @Column(name = "jedinica_mere")
     private String jedinicaMere;
 
-    @Column(name = "cena_po_jedinici")
-    private Integer cenaPoJedinici;
+    @Column(name = "cena_po_jedinici_mere")
+    private Double cenaPoJediniciMere;
 
-    @Column(name = "pdv")
-    private Integer pdv;
-
-    @Column(name = "cena_sa_pdv")
-    private Integer cenaSaPdv;
-
-    @ManyToOne
-    @JoinColumn(name = "narudzbenica_id")
-    private Narudzbenica narudzbenica;
-
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "magacin_id")  // Foreign key column in artikal_roba table
+    private Magacin magacin;
 
 
 

@@ -1,21 +1,23 @@
-package com.roba.roba.data;
+package com.prodaja.prodaja.data;
 
 import jakarta.persistence.*;
-import jakarta.persistence.criteria.CriteriaBuilder;
 import lombok.*;
 
 @Entity
-@Table(name = "artikli_roba")
+@Table(name = "product_prodaja")
 @Getter
 @Setter
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Builder
 @ToString
-public class Artikal {
+public class Product {//da pratim cene i stanja
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @Column(name = "sifra_artikla")
+    private  Integer sifraArtikla;
 
     @Column(name = "naziv")
     private String naziv;
@@ -30,5 +32,4 @@ public class Artikal {
     private Double cenaPoJediniciMere;
 
 
-    //kako sa dobavljacima i magacinima i ove liste
 }

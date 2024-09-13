@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Table(name = "predracun")
+@Table(name = "predracuni")
 @Getter
 @Setter
 @RequiredArgsConstructor
@@ -21,7 +21,7 @@ public class Predracun {
     private Integer id;
 
     @Column(name = "ukupna_cena")
-    private Double ukupnaCena;
+    private Double ukupnaCena;//marza 20 posto
 
     @Column(name = "datum_palacanja")
     private LocalDate datum;

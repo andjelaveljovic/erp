@@ -1,0 +1,13 @@
+com/roba/roba/service/ArtikalRobaService.class
+com/roba/roba/data/Magacin.class
+com/roba/roba/repository/OtpremnicaRepository.class
+com/roba/roba/data/ArtikalRoba$ArtikalRobaBuilder.class
+com/roba/roba/RobaApplication.class
+com/roba/roba/data/Otpremnica.class
+com/roba/roba/data/Magacin$MagacinBuilder.class
+com/roba/roba/repository/ArtikalRobaRepository.class
+com/roba/roba/data/Rezervacija.class
+com/roba/roba/data/ArtikalRoba.class
+com/roba/roba/repository/MagacinRepository.class
+com/roba/roba/data/Rezervacija$RezervacijaBuilder.class
+com/roba/roba/data/Otpremnica$OtpremnicaBuilder.class
