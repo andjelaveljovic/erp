@@ -1,6 +1,7 @@
 package com.roba.roba.data;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -23,14 +24,24 @@ public class Magacin {
     @Column(name = "magacin_id")
     private Integer magacinId;
 
-    @Column(name = "datum_dodavanja")
-    private LocalDate datum;
-
-    @Column(name = "sifra_dobavljaca")
-    private Integer sifraDobavljaca;
-
-
 
     @OneToMany(mappedBy = "magacin", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @JsonManagedReference
     private List<ArtikalRoba> artikli;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public Integer getMagacinId() {
+        return magacinId;
+    }
+    @Override
+    public String toString() {
+        return "Magacin{" +
+                "id=" + magacinId +
+
+
+                '}';
+    }
 }

@@ -32,5 +32,35 @@ public class Narudzbenica {
     @OneToOne(mappedBy = "narudzbenica", cascade = CascadeType.ALL)
     private Predracun predracun;// cuva id ovde, povezano
 
+    public Integer getSifraKupca() {
+        return sifraKupca;
+    }
 
+    public void setSifraKupca(Integer sifraKupca) {
+        this.sifraKupca = sifraKupca;
+    }
+
+    public String getNazivKupca() {
+        return nazivKupca;
+    }
+
+    public void setNazivKupca(String nazivKupca) {
+        this.nazivKupca = nazivKupca;
+    }
+
+    public List<Artikal> getArtikli() {
+        return artikli;
+    }
+
+    public void setArtikli(List<Artikal> artikli) {
+        this.artikli = artikli;
+    }
+
+    public Predracun getPredracun() {
+        return predracun;
+    }
+
+    public void setPredracun(Predracun predracun) {
+        this.predracun = predracun;
+    }
 }

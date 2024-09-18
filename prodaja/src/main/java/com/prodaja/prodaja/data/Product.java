@@ -31,5 +31,43 @@ public class Product {//da pratim cene i stanja
     @Column(name = "cena_po_jedinici_mere")
     private Double cenaPoJediniciMere;
 
+    public Integer getSifraArtikla() {
+        return sifraArtikla;
+    }
 
+    public void setSifraArtikla(Integer sifraArtikla) {
+        this.sifraArtikla = sifraArtikla;
+    }
+
+    public String getNaziv() {
+        return naziv;
+    }
+
+    public void setNaziv(String naziv) {
+        this.naziv = naziv;
+    }
+
+    public Integer getKolicina() {
+        return kolicina;
+    }
+
+    public void setKolicina(Integer kolicina) {
+        this.kolicina = kolicina;
+    }
+
+    public String getJedinicaMere() {
+        return jedinicaMere;
+    }
+
+    public void setJedinicaMere(String jedinicaMere) {
+        this.jedinicaMere = jedinicaMere;
+    }
+
+    public Double getCenaPoJediniciMere() {
+        return cenaPoJediniciMere;
+    }
+
+    public void setCenaPoJediniciMere(Double cenaPoJediniciMere) {
+        this.cenaPoJediniciMere = cenaPoJediniciMere;
+    }
 }
