@@ -12,10 +12,15 @@ import org.springframework.context.annotation.Configuration;
 public class RabbitMQConfigurator {
 
     public static final String PRODUCTS_TOPIC_EXCHANGE_NAME = "products-events-exchange";
+    public static final String FOUND_SUCCESS_TOPIC_EXCHANGE_NAME = "successful-exchange";
+
+    public static final String NOTFOUND_FAIL_TOPIC_EXCHANGE_NAME = "notfound-exchange";
 
 
-   // public static final String PRODUCTS_SERVICE_QUEUE = "products-service-queue";
      public static final String PRODUCTS_SERVICE_QUEUE_JSON = "queue-json";
+
+    public static final String FOUND_SUCCESS_QUEUE_JSON = "successful-queue";
+    public static final String NOTFOUND_FAIL_QUEUE_JSON = "notfound-queue";
 
 //    @Bean
 //    Queue productQueue() {
@@ -26,24 +31,58 @@ public class RabbitMQConfigurator {
      Queue productQueueJSON() {
         return new Queue(PRODUCTS_SERVICE_QUEUE_JSON, true);
    }
-
+//    // Queue for error messages
+//    @Bean
+//    public Queue errorQueue() {
+//        return new Queue(NOTFOUND_FAIL_QUEUE_JSON);
+//    }
+//    // Queue for successful ArtikalRoba
+//    @Bean
+//    public Queue successfulQueue() {
+//        return new Queue(FOUND_SUCCESS_QUEUE_JSON);
+//    }
+//
 
     @Bean
     TopicExchange productExchange() {
         return new TopicExchange(PRODUCTS_TOPIC_EXCHANGE_NAME);
     }
-
-
-
-//    @Bean(name = "productQueue")
-//    Binding productBinding(Queue productQueue, TopicExchange productExchange) {
-//        return BindingBuilder.bind(productQueue).to(productExchange).with("product.events.pokusavam");
+//    @Bean
+//    public TopicExchange successfulExchange() {
+//        return new TopicExchange(FOUND_SUCCESS_TOPIC_EXCHANGE_NAME);
 //    }
+//    // Exchange for error messages
+//    @Bean
+//    public TopicExchange errorExchange() {
+//        return new TopicExchange(NOTFOUND_FAIL_TOPIC_EXCHANGE_NAME);
+//    }
+
+
+
 
     @Bean(name = "productQueueJSON")
     Binding productBindingJSON(Queue productQueueJSON, TopicExchange productExchange) {
         return BindingBuilder.bind(productQueueJSON).to(productExchange).with("product.events.json");
     }
+
+
+
+//
+//
+//    // Binding successful queue to the exchange
+//    @Bean
+//    public Binding successfulBinding(TopicExchange successfulExchange, Queue successfulQueue) {
+//        return BindingBuilder.bind(successfulQueue).to(successfulExchange).with("artikal.found.success");
+//    }
+//
+
+
+//
+//    // Binding error queue to the exchange
+//    @Bean
+//    public Binding errorBinding(TopicExchange errorExchange, Queue errorQueue) {
+//        return BindingBuilder.bind(errorQueue).to(errorExchange).with("artikal.notfound.error");
+//    }
 
     //new rabbit template for json messages
     @Bean

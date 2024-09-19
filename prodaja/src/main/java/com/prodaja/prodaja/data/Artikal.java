@@ -43,6 +43,67 @@ public class Artikal {
     private Narudzbenica narudzbenica;
 
 
+    public Integer getSifraArtikla() {
+        return sifraArtikla;
+    }
 
+    public void setSifraArtikla(Integer sifraArtikla) {
+        this.sifraArtikla = sifraArtikla;
+    }
 
+    public String getNaziv() {
+        return naziv;
+    }
+
+    public void setNaziv(String naziv) {
+        this.naziv = naziv;
+    }
+
+    public Integer getKolicina() {
+        return kolicina;
+    }
+
+    public void setKolicina(Integer kolicina) {
+        this.kolicina = kolicina;
+    }
+
+    public String getJedinicaMere() {
+        return jedinicaMere;
+    }
+
+    public void setJedinicaMere(String jedinicaMere) {
+        this.jedinicaMere = jedinicaMere;
+    }
+
+    public Integer getCenaPoJedinici() {
+        return cenaPoJedinici;
+    }
+
+    public void setCenaPoJedinici(Integer cenaPoJedinici) {
+        this.cenaPoJedinici = cenaPoJedinici;
+    }
+
+    public Integer getPdv() {
+        return pdv;
+    }
+
+    public void setPdv(Integer pdv) {
+        this.pdv = pdv;
+    }
+
+    public Integer getCenaSaPdv() {
+        return cenaSaPdv;
+    }
+
+    public void setCenaSaPdv(Integer cenaSaPdv) {
+        this.cenaSaPdv = cenaSaPdv;
+    }
+
+    public Narudzbenica getNarudzbenica() {
+        return narudzbenica;
+    }
+
+    public void setNarudzbenica(Narudzbenica narudzbenica) {
+        this.narudzbenica = narudzbenica;
+    }
 }
