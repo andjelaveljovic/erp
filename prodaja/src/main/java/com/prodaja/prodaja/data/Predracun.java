@@ -30,8 +30,7 @@ public class Predracun {
     @JoinColumn(name = "narudzbenica_id", referencedColumnName = "id")//id se odnosi na ovaj id
     private Narudzbenica narudzbenica;// cuva id ovde, povezano
 
-    @OneToOne(mappedBy = "predracun", cascade = CascadeType.ALL)
-    private Faktura faktura;
+
 
 
 

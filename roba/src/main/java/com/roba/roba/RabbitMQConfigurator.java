@@ -5,6 +5,7 @@ import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.amqp.support.converter.MessageConverter;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -12,34 +13,31 @@ import org.springframework.context.annotation.Configuration;
 public class RabbitMQConfigurator {
 
     public static final String PRODUCTS_TOPIC_EXCHANGE_NAME = "products-events-exchange";
-    public static final String FOUND_SUCCESS_TOPIC_EXCHANGE_NAME = "successful-exchange";
-
-    public static final String NOTFOUND_FAIL_TOPIC_EXCHANGE_NAME = "notfound-exchange";
 
 
-     public static final String PRODUCTS_SERVICE_QUEUE_JSON = "queue-json";
-
-    public static final String FOUND_SUCCESS_QUEUE_JSON = "successful-queue";
-    public static final String NOTFOUND_FAIL_QUEUE_JSON = "notfound-queue";
-
-//    @Bean
+     public static final String PRODUCTS_SERVICE_QUEUE_JSON = "queue-products-json";
+//
+//    public static final String FOUND_SUCCESS_QUEUE_JSON = "successful-queue";
+//    public static final String NOTFOUND_FAIL_QUEUE_JSON = "notfound-queue";
+//
+////    @Bean
 //    Queue productQueue() {
 //        return new Queue(PRODUCTS_SERVICE_QUEUE, true);
 //    }
 
-     @Bean
-     Queue productQueueJSON() {
+    @Bean
+    Queue productQueueJSON() {
         return new Queue(PRODUCTS_SERVICE_QUEUE_JSON, true);
-   }
+    }
 //    // Queue for error messages
 //    @Bean
 //    public Queue errorQueue() {
-//        return new Queue(NOTFOUND_FAIL_QUEUE_JSON);
+//        return new Queue(NOTFOUND_FAIL_QUEUE_JSON, true);
 //    }
 //    // Queue for successful ArtikalRoba
 //    @Bean
 //    public Queue successfulQueue() {
-//        return new Queue(FOUND_SUCCESS_QUEUE_JSON);
+//        return new Queue(FOUND_SUCCESS_QUEUE_JSON, true);
 //    }
 //
 
@@ -47,15 +45,7 @@ public class RabbitMQConfigurator {
     TopicExchange productExchange() {
         return new TopicExchange(PRODUCTS_TOPIC_EXCHANGE_NAME);
     }
-//    @Bean
-//    public TopicExchange successfulExchange() {
-//        return new TopicExchange(FOUND_SUCCESS_TOPIC_EXCHANGE_NAME);
-//    }
-//    // Exchange for error messages
-//    @Bean
-//    public TopicExchange errorExchange() {
-//        return new TopicExchange(NOTFOUND_FAIL_TOPIC_EXCHANGE_NAME);
-//    }
+
 
 
 
@@ -71,17 +61,17 @@ public class RabbitMQConfigurator {
 //
 //    // Binding successful queue to the exchange
 //    @Bean
-//    public Binding successfulBinding(TopicExchange successfulExchange, Queue successfulQueue) {
-//        return BindingBuilder.bind(successfulQueue).to(successfulExchange).with("artikal.found.success");
+//    public Binding successfulBinding(TopicExchange productExchange,@Qualifier("successfulQueue") Queue successfulQueue) {
+//        return BindingBuilder.bind(successfulQueue).to(productExchange).with("artikal.found.success");
 //    }
 //
-
-
+//
+//
 //
 //    // Binding error queue to the exchange
 //    @Bean
-//    public Binding errorBinding(TopicExchange errorExchange, Queue errorQueue) {
-//        return BindingBuilder.bind(errorQueue).to(errorExchange).with("artikal.notfound.error");
+//    public Binding errorBinding(TopicExchange productExchange, Queue errorQueue) {
+//        return BindingBuilder.bind(errorQueue).to(productExchange).with("artikal.notfound.error");
 //    }
 
     //new rabbit template for json messages

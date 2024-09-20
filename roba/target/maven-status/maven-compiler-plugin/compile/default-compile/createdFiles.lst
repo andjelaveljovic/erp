@@ -1,4 +1,5 @@
 com/roba/roba/data/ProbaUser.class
+com/roba/roba/data/SuccesMessage.class
 com/roba/roba/service/ArtikalRobaService.class
 com/roba/roba/data/Magacin.class
 com/roba/roba/repository/OtpremnicaRepository.class

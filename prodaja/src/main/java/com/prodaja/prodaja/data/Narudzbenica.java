@@ -1,3 +1,4 @@
+
 package com.prodaja.prodaja.data;
 
 import jakarta.persistence.*;
